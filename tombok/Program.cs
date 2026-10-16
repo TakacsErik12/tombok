@@ -24,9 +24,38 @@
             }
         }
 
+        static void Csere()
+        {
+            Console.WriteLine("Melyik törpöt cseréljük?");
+            string nev = Console.ReadLine();
+
+            // van-e a tömbben ilyen törp, és hanyadik indexen van 
+
+            int index = 0;
+            while (index < torpok.Length && torpok[index] != nev)
+            {
+                index++;
+            }
+            if (index < torpok.Length)
+            {
+               
+                Console.WriteLine("Melyik törpre cseréljük le: ");
+                string ujNev = Console.ReadLine();
+                torpok[index] = ujNev;
+                Console.WriteLine("Lecserélve");
+            }
+            else
+            {
+                Console.WriteLine("Nincs ilyen törp a listában");
+            }
+
+        }
+
         static void Main(string[] args)
         {
             TorpokLetrehozasa();
+            TorpokKiirasa();
+            Csere();
             TorpokKiirasa();
         }
     }
